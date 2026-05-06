@@ -24,7 +24,7 @@ A modern inventory management system built with Laravel, Tailwind CSS, and Alpin
 - **Backend**: Laravel 11 (PHP 8.1+)
 - **Frontend**: Blade templates with Alpine.js
 - **Styling**: Tailwind CSS
-- **Database**: MySQL 8.0+
+- **Database**: SQLite
 - **Build Tool**: Vite
 
 ---
@@ -35,7 +35,6 @@ A modern inventory management system built with Laravel, Tailwind CSS, and Alpin
 - PHP 8.1 or higher
 - Composer
 - Node.js & npm
-- MySQL database
 - Git
 
 ### Installation
@@ -62,14 +61,7 @@ A modern inventory management system built with Laravel, Tailwind CSS, and Alpin
    php artisan key:generate
    ```
 
-5. **Configure database** — Edit `.env` file:
-   ```
-   DB_HOST=localhost
-   DB_PORT=3306
-   DB_DATABASE=inventory_system
-   DB_USERNAME=root
-   DB_PASSWORD=
-   ```
+5. **Configure database** — The project uses SQLite by default. The database file is located at `database/database.sqlite`. No additional configuration is needed.
 
 6. **Run migrations**
    ```bash
@@ -81,17 +73,22 @@ A modern inventory management system built with Laravel, Tailwind CSS, and Alpin
    php artisan db:seed
    ```
 
-8. **Build assets**
+8. **Create storage link** — Required for image uploads to work
+   ```bash
+   php artisan storage:link
+   ```
+
+9. **Build assets**
    ```bash
    npm run dev
    ```
 
-9. **Start development server**
-   ```bash
-   php artisan serve
-   ```
+10. **Start development server**
+    ```bash
+    php artisan serve
+    ```
 
-10. **Access the application**
+11. **Access the application**
     - URL: `http://localhost:8000`
     - Admin Email: `admin@inventory.com` | Password: `Admin@1234`
     - Staff Email: `staff@inventory.com` | Password: `Staff@1234`

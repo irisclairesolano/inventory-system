@@ -1,28 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2 class="mb-4">Edit Category</h2>
+<div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="text-3xl font-semibold text-[#111827] mb-8">Edit Category</h1>
 
-    <form method="POST" action="{{ route('categories.update', $category) }}">
+    <form method="POST" action="{{ route('categories.update', $category) }}" class="space-y-6">
         @csrf @method('PUT')
         <div class="card">
-            <div class="card-body">
-                <div class="mb-3">
+            <div class="space-y-6">
+                <div>
                     <label for="name" class="form-label">Category Name *</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $category->name) }}" required>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value="{{ old('name', $category->name) }}"
+                        class="input-field @error('name') border-[#EF4444] @enderror"
+                        required
+                    >
                     @error('name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
 
-                <div class="mb-3">
+                <div>
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="3">{{ old('description', $category->description) }}</textarea>
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="4"
+                        class="input-field @error('description') border-[#EF4444] @enderror"
+                    >{{ old('description', $category->description) }}</textarea>
+                    @error('description') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
             </div>
         </div>
-        <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Update Category</button>
-            <a href="{{ route('categories.index') }}" class="btn btn-secondary">Cancel</a>
+
+        <div class="flex gap-3">
+            <button type="submit" class="btn-primary">
+                Update Category
+            </button>
+            <a href="{{ route('categories.index') }}" class="btn-secondary">
+                Cancel
+            </a>
         </div>
     </form>
 </div>

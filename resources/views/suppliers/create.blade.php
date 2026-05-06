@@ -1,34 +1,70 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2 class="mb-4">Add Supplier</h2>
-    <form method="POST" action="{{ route('suppliers.store') }}">
+<div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="text-3xl font-semibold text-[#111827] mb-8">Add Supplier</h1>
+
+    <form method="POST" action="{{ route('suppliers.store') }}" class="space-y-6">
         @csrf
         <div class="card">
-            <div class="card-body">
-                <div class="mb-3">
-                    <label class="form-label">Name *</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required>
+            <div class="space-y-6">
+                <div>
+                    <label for="name" class="form-label">Name *</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value="{{ old('name') }}"
+                        class="input-field @error('name') border-[#EF4444] @enderror"
+                        required
+                    >
                     @error('name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+
+                <div>
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="{{ old('email') }}"
+                        class="input-field @error('email') border-[#EF4444] @enderror"
+                    >
+                    @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Phone</label>
-                    <input type="text" class="form-control" name="phone" value="{{ old('phone') }}">
+
+                <div>
+                    <label for="phone" class="form-label">Phone</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value="{{ old('phone') }}"
+                        class="input-field @error('phone') border-[#EF4444] @enderror"
+                    >
+                    @error('phone') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Address</label>
-                    <textarea class="form-control" name="address" rows="3">{{ old('address') }}</textarea>
+
+                <div>
+                    <label for="address" class="form-label">Address</label>
+                    <textarea
+                        id="address"
+                        name="address"
+                        rows="3"
+                        class="input-field @error('address') border-[#EF4444] @enderror"
+                    >{{ old('address') }}</textarea>
+                    @error('address') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
             </div>
         </div>
-        <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a href="{{ route('suppliers.index') }}" class="btn btn-secondary">Cancel</a>
+
+        <div class="flex gap-3">
+            <button type="submit" class="btn-primary">
+                Save Supplier
+            </button>
+            <a href="{{ route('suppliers.index') }}" class="btn-secondary">
+                Cancel
+            </a>
         </div>
     </form>
 </div>
