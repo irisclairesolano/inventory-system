@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Inventory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Collection;
 
 class ProductCategorySeeder extends Seeder
 {
@@ -38,14 +39,14 @@ class ProductCategorySeeder extends Seeder
         $electronics = Category::where('name', 'Electronics')->first();
         if ($electronics) {
             $electronicsProducts = [
-                ['name' => 'Laptop Dell XPS 13', 'sku' => 'DELL-XPS-13', 'price' => 1299.99],
-                ['name' => 'HP Printer LaserJet Pro', 'sku' => 'HP-LJ-PRO-M404', 'price' => 299.99],
-                ['name' => 'USB-C Hub 7-in-1', 'sku' => 'USB-HUB-7IN1', 'price' => 49.99],
-                ['name' => 'Wireless Mouse Logitech', 'sku' => 'LOG-MOUSE-MX3', 'price' => 99.99],
-                ['name' => 'Mechanical Keyboard RGB', 'sku' => 'KEY-RGB-MECH', 'price' => 149.99],
-                ['name' => '4K Monitor LG 27"', 'sku' => 'LG-MON-27-4K', 'price' => 399.99],
-                ['name' => 'Portable SSD 1TB', 'sku' => 'SSD-PORT-1TB', 'price' => 129.99],
-                ['name' => 'HDMI Cable 2.1', 'sku' => 'HDMI-21-2M', 'price' => 19.99],
+                ['name' => 'Laptop Dell XPS 13', 'sku' => 'DELL-XPS-13', 'price' => 75000],
+                ['name' => 'HP Printer LaserJet Pro', 'sku' => 'HP-LJ-PRO-M404', 'price' => 18000],
+                ['name' => 'USB-C Hub 7-in-1', 'sku' => 'USB-HUB-7IN1', 'price' => 3500],
+                ['name' => 'Wireless Mouse Logitech', 'sku' => 'LOG-MOUSE-MX3', 'price' => 6500],
+                ['name' => 'Mechanical Keyboard RGB', 'sku' => 'KEY-RGB-MECH', 'price' => 8500],
+                ['name' => '4K Monitor LG 27"', 'sku' => 'LG-MON-27-4K', 'price' => 24000],
+                ['name' => 'Portable SSD 1TB', 'sku' => 'SSD-PORT-1TB', 'price' => 8000],
+                ['name' => 'HDMI Cable 2.1', 'sku' => 'HDMI-21-2M', 'price' => 1200],
             ];
             $this->seedProductsForCategory($electronics, $electronicsProducts, $suppliers);
         }
@@ -54,14 +55,14 @@ class ProductCategorySeeder extends Seeder
         $officeSupplies = Category::where('name', 'Office Supplies')->first();
         if ($officeSupplies) {
             $suppliesProducts = [
-                ['name' => 'A4 Paper Ream 500 Sheets', 'sku' => 'PAPER-A4-500', 'price' => 5.99],
-                ['name' => 'Ink Cartridge Black HP', 'sku' => 'INK-HP-BK-XL', 'price' => 35.99],
-                ['name' => 'Sticky Notes 3x3 100 pack', 'sku' => 'STICKY-3X3-100', 'price' => 4.99],
-                ['name' => 'Ballpoint Pen Set 50pcs', 'sku' => 'PEN-BALL-50', 'price' => 12.99],
-                ['name' => 'File Folders Assorted 12 pack', 'sku' => 'FOLDERS-12', 'price' => 8.99],
-                ['name' => 'Stapler Heavy Duty', 'sku' => 'STAPLER-HD', 'price' => 22.99],
-                ['name' => 'Tape Dispenser with Tape', 'sku' => 'TAPE-DISP', 'price' => 9.99],
-                ['name' => 'Binder Clips Assorted 24pcs', 'sku' => 'CLIPS-24', 'price' => 6.99],
+                ['name' => 'A4 Paper Ream 500 Sheets', 'sku' => 'PAPER-A4-500', 'price' => 350],
+                ['name' => 'Ink Cartridge Black HP', 'sku' => 'INK-HP-BK-XL', 'price' => 2200],
+                ['name' => 'Sticky Notes 3x3 100 pack', 'sku' => 'STICKY-3X3-100', 'price' => 300],
+                ['name' => 'Ballpoint Pen Set 50pcs', 'sku' => 'PEN-BALL-50', 'price' => 800],
+                ['name' => 'File Folders Assorted 12 pack', 'sku' => 'FOLDERS-12', 'price' => 550],
+                ['name' => 'Stapler Heavy Duty', 'sku' => 'STAPLER-HD', 'price' => 1400],
+                ['name' => 'Tape Dispenser with Tape', 'sku' => 'TAPE-DISP', 'price' => 650],
+                ['name' => 'Binder Clips Assorted 24pcs', 'sku' => 'CLIPS-24', 'price' => 450],
             ];
             $this->seedProductsForCategory($officeSupplies, $suppliesProducts, $suppliers);
         }
@@ -70,14 +71,14 @@ class ProductCategorySeeder extends Seeder
         $furniture = Category::where('name', 'Furniture')->first();
         if ($furniture) {
             $furnitureProducts = [
-                ['name' => 'Ergonomic Office Chair', 'sku' => 'CHAIR-ERGO-BLK', 'price' => 349.99],
-                ['name' => 'Standing Desk Electric', 'sku' => 'DESK-STAND-ELEC', 'price' => 499.99],
-                ['name' => 'Bookshelf 5-Tier', 'sku' => 'SHELF-5TIER-WHT', 'price' => 129.99],
-                ['name' => 'Conference Table 8-seater', 'sku' => 'TABLE-CONF-8', 'price' => 799.99],
-                ['name' => 'Storage Cabinet Metal', 'sku' => 'CAB-STOR-MTL', 'price' => 199.99],
-                ['name' => 'Executive Desk', 'sku' => 'DESK-EXEC-OAK', 'price' => 599.99],
-                ['name' => 'Meeting Chair Mesh', 'sku' => 'CHAIR-MESH-GRY', 'price' => 249.99],
-                ['name' => 'Desk Lamp LED', 'sku' => 'LAMP-LED-BLK', 'price' => 59.99],
+                ['name' => 'Ergonomic Office Chair', 'sku' => 'CHAIR-ERGO-BLK', 'price' => 22000],
+                ['name' => 'Standing Desk Electric', 'sku' => 'DESK-STAND-ELEC', 'price' => 32000],
+                ['name' => 'Bookshelf 5-Tier', 'sku' => 'SHELF-5TIER-WHT', 'price' => 8500],
+                ['name' => 'Conference Table 8-seater', 'sku' => 'TABLE-CONF-8', 'price' => 50000],
+                ['name' => 'Storage Cabinet Metal', 'sku' => 'CAB-STOR-MTL', 'price' => 13000],
+                ['name' => 'Executive Desk', 'sku' => 'DESK-EXEC-OAK', 'price' => 38000],
+                ['name' => 'Meeting Chair Mesh', 'sku' => 'CHAIR-MESH-GRY', 'price' => 16000],
+                ['name' => 'Desk Lamp LED', 'sku' => 'LAMP-LED-BLK', 'price' => 4000],
             ];
             $this->seedProductsForCategory($furniture, $furnitureProducts, $suppliers);
         }
@@ -85,7 +86,7 @@ class ProductCategorySeeder extends Seeder
         $this->command->info('✓ Successfully seeded 7+ products in each category!');
     }
 
-    private function seedProductsForCategory($category, $products, $suppliers)
+    private function seedProductsForCategory(Category $category, array $products, Collection $suppliers): void
     {
         foreach ($products as $productData) {
             $product = Product::firstOrCreate(

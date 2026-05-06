@@ -7,19 +7,20 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth'])
     ->name('dashboard');
 
 // Routes accessible to ALL authenticated users
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -27,14 +28,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // View-only routes for staff and admin
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
     Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
     Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
 });
 
 // Routes for ADMIN only
-Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     // Product CRUD
-    Route::resource('products', ProductController::class)->except(['index', 'show']);
+    Route::resource('products', ProductController::class)->except(['index', 'show', 'create']);
 
     // Categories
     Route::resource('categories', CategoryController::class);
@@ -44,6 +46,9 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
 
     // Inventory management
     Route::resource('inventory', InventoryController::class)->except(['index']);
+
+    // Transactions
+    Route::resource('transactions', TransactionController::class);
 
     // Reports
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
