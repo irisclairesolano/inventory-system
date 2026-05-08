@@ -1,9 +1,10 @@
 
-
 Clone and enter the project
 
 git clone https://github.com/irisclairesolano/inventory-system.git
 cd inventory-system
+
+
 
 
 
@@ -14,9 +15,13 @@ npm install
 
 
 
+
+
 Create the .env 
 
 copy .env.example .env
+
+
 
 
 
@@ -26,9 +31,13 @@ php artisan key:generate
 
 
 
+
+
 Create the Database in MySQL
 
 CREATE DATABASE inventory_db;
+
+
 
 
 
@@ -43,11 +52,15 @@ DB_PASSWORD=
 
 
 
+
+
 Clear the View Cache
 
 php artisan view:clear
 php artisan cache:clear
 php artisan config:clear
+
+
 
 
 
@@ -57,9 +70,12 @@ php artisan storage:link
 
 
 
+
+
 Clear the Configuration Cache
 
 php artisan config:clear
+
 
 
 
