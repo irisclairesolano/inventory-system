@@ -1,9 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
 <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="mb-8">
-        <h1 class="text-3xl font-semibold text-[#111827]">Record Transaction</h1>
+        <h1 class="text-3xl font-semibold text-[#F7F4D5]">Record Transaction</h1>
         <p class="text-sm text-[#6B7280] mt-2">Log a new stock movement</p>
     </div>
 
@@ -81,4 +79,4 @@
         </form>
     </div>
 </div>
-@endsection
+</x-app-layout>

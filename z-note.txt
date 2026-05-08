@@ -1,0 +1,70 @@
+
+
+Clone and enter the project
+
+git clone https://github.com/irisclairesolano/inventory-system.git
+cd inventory-system
+
+
+
+Install Dependencies
+
+composer install
+npm install
+
+
+
+Create the .env 
+
+copy .env.example .env
+
+
+
+Generate the Key
+
+php artisan key:generate
+
+
+
+Create the Database in MySQL
+
+CREATE DATABASE inventory_db;
+
+
+
+Update your .env File
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=inventory_db
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+
+Clear the View Cache
+
+php artisan view:clear
+php artisan cache:clear
+php artisan config:clear
+
+
+
+Link the storage
+
+php artisan storage:link
+
+
+
+Clear the Configuration Cache
+
+php artisan config:clear
+
+
+
+
+Run Migrations & Seed
+
+php artisan migrate --seed
+

@@ -1,8 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
 <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <h1 class="text-3xl font-semibold text-[#111827] mb-8">Edit Supplier</h1>
+    <h1 class="text-3xl font-semibold text-[#F7F4D5] mb-8">Edit Supplier</h1>
 
     <form method="POST" action="{{ route('suppliers.update', $supplier) }}" class="space-y-6">
         @csrf @method('PUT')
@@ -68,4 +66,4 @@
         </div>
     </form>
 </div>
-@endsection
+</x-app-layout>

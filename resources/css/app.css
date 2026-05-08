@@ -71,8 +71,12 @@
 
     /* Label Styles */
     .form-label {
-        @apply block text-sm font-medium text-[#F7F4D5] mb-2;
+        @apply block text-sm font-medium text-[#0A3323] mb-2;
     }
+
+    /* .form-label {
+        @apply block text-sm font-medium text-[#F7F4D5] mb-2;
+    } */
 
     /* Input Field */
     .input-field,
@@ -121,7 +125,7 @@
 
     /* Cards */
     .card {
-        @apply bg-[#F7F4D5] rounded-[12px] shadow-card border border-[#839958] p-6 transition-all duration-150;
+        @apply bg-[#FAF8F1] rounded-[12px] shadow-card border border-[#839958] p-6 transition-all duration-150;
     }
 
     .card:hover {
