@@ -1,4 +1,3 @@
-
 Clone and enter the project
 
 git clone https://github.com/irisclairesolano/inventory-system.git
