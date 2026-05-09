@@ -47,8 +47,44 @@
             @endif
         </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <div class="flex items-center gap-4"
+            x-data="{ loading: false }"
+            x-init="
+                $el.closest('form').addEventListener('submit', () => loading = true)
+                window.addEventListener('pageshow', () => loading = false)
+            ">
+
+            <button
+                type="submit"
+                :disabled="loading"
+                class="btn-primary flex items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+
+                <!-- Spinner -->
+                <svg
+                    x-show="loading"
+                    class="animate-spin h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24">
+
+                    <circle
+                        class="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="4">
+                    </circle>
+
+                    <path
+                        class="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z">
+                    </path>
+                </svg>
+
+                <span x-text="loading ? 'Saving...' : 'Save'"></span>
+            </button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -56,8 +92,10 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                    class="text-sm text-[#839958]"
+                >
+                    Saved successfully.
+                </p>
             @endif
         </div>
     </form>

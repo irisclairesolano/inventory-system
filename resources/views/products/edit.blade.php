@@ -1,8 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
 <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <h1 class="text-3xl font-semibold text-[#111827] mb-8">Edit Product</h1>
+    <h1 class="text-3xl font-semibold text-[#F7F4D5] mb-8">
+        Edit Product
+    </h1>
 
     <form method="POST" action="{{ route('products.update', $product) }}" enctype="multipart/form-data" class="space-y-6">
         @csrf @method('PUT')
@@ -104,7 +104,24 @@
                         id="image"
                         name="image"
                         accept="image/*"
-                        class="input-field @error('image') border-[#EF4444] @enderror"
+                        class="
+                            input-field
+                            @error('image') border-[#EF4444] @enderror
+
+                            file:mr-4
+                            file:px-4
+                            file:py-2
+                            file:rounded-lg
+                            file:border-0
+                            file:bg-[#839958]
+                            file:text-white
+                            file:text-sm
+                            file:font-medium
+                            file:cursor-pointer
+                            file:transition-all
+                            file:duration-150
+                            hover:file:bg-[#6B7A4A]
+                        "
                     >
                     <p class="text-xs text-[#6B7280] mt-2">Recommended size: 500x500px, Max 2MB</p>
                     @error('image') <div class="invalid-feedback">{{ $message }}</div> @enderror
@@ -133,4 +150,4 @@
         </div>
     </form>
 </div>
-@endsection
+</x-app-layout>

@@ -1,8 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
 <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <h1 class="text-3xl font-semibold text-[#111827] mb-2">Edit Inventory</h1>
+    <h1 class="text-3xl font-semibold text-[#F7F4D5] mb-2">Edit Inventory</h1>
     <p class="text-sm text-[#6B7280] mb-8">{{ $inventory->product->name }}</p>
 
     <form method="POST" action="{{ route('inventory.update', $inventory) }}" class="space-y-6">
@@ -61,4 +59,4 @@
         </div>
     </form>
 </div>
-@endsection
+</x-app-layout>

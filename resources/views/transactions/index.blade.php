@@ -1,10 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="flex justify-between items-start mb-8">
         <div>
-            <h1 class="text-3xl font-semibold text-[#111827]">Transactions</h1>
+            <h1 class="text-3xl font-semibold text-[#F7F4D5]">Transactions</h1>
             <p class="text-sm text-[#6B7280] mt-2">Log and track all inventory movements</p>
         </div>
         <a href="{{ route('transactions.create') }}" class="btn-primary">
@@ -80,4 +78,4 @@
         </div>
     @endif
 </div>
-@endsection
+</x-app-layout>

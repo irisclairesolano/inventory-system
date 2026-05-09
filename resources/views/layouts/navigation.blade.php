@@ -50,7 +50,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('profile.show')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -81,30 +81,57 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div 
+        :class="{'block': open, 'hidden': ! open}" 
+        class="hidden sm:hidden relative z-50 bg-[#105666]"
+    >
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link 
+                :href="route('dashboard')" 
+                :active="request()->routeIs('dashboard')"
+                @click="open = false"
+            >
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
+            <x-responsive-nav-link 
+                :href="route('products.index')" 
+                :active="request()->routeIs('products.*')"
+                @click="open = false"
+            >
                 {{ __('Products') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('inventory.index')" :active="request()->routeIs('inventory.*')">
+            <x-responsive-nav-link 
+                :href="route('inventory.index')" 
+                :active="request()->routeIs('inventory.*')"
+                @click="open = false"
+            >
                 {{ __('Inventory') }}
             </x-responsive-nav-link>
 
             @if(auth()->user()->role === 'admin')
-                <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
+                <x-responsive-nav-link 
+                    :href="route('categories.index')" 
+                    :active="request()->routeIs('categories.*')"
+                    @click="open = false"
+                >
                     {{ __('Categories') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">
+                <x-responsive-nav-link 
+                    :href="route('suppliers.index')" 
+                    :active="request()->routeIs('suppliers.*')"
+                    @click="open = false"
+                >
                     {{ __('Suppliers') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.*')">
+                <x-responsive-nav-link 
+                    :href="route('reports.index')" 
+                    :active="request()->routeIs('reports.*')"
+                    @click="open = false"
+                >
                     {{ __('Reports') }}
                 </x-responsive-nav-link>
             @endif
@@ -113,23 +140,35 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-[#839958]">
             <div class="px-4">
-                <div class="font-medium text-base text-[#F7F4D5]">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-[#E8E6C8]">{{ Auth::user()->email }}</div>
-                <div class="font-medium text-sm text-[#839958]">Role: {{ Auth::user()->role }}</div>
+                <div class="font-medium text-base text-[#F7F4D5]">
+                    {{ Auth::user()->name }}
+                </div>
+
+                <div class="font-medium text-sm text-[#E8E6C8]">
+                    {{ Auth::user()->email }}
+                </div>
+
+                <div class="font-medium text-sm text-[#839958]">
+                    Role: {{ Auth::user()->role }}
+                </div>
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link 
+                    :href="route('profile.show')"
+                    @click="open = false"
+                >
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                <!-- Authentication -->
+                <!-- Logout -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                    <x-responsive-nav-link 
+                        :href="route('logout')"
+                        @click.prevent="open = false; $event.target.closest('form').submit();"
+                    >
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>

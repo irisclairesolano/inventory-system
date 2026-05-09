@@ -62,4 +62,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function loginLogs()
+    {
+        return $this->hasMany(LoginLog::class)->latest();
+    }
+    
 }

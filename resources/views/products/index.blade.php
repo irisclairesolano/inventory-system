@@ -1,10 +1,11 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header -->
     <div class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-semibold text-[#111827]">Products</h1>
+    <h1 class="text-3xl font-semibold text-[#F7F4D5]">
+        Products
+    </h1>
+
         @if(Auth::user()->role === 'admin')
             <a href="{{ route('products.create') }}" class="btn-primary">
                 <span>+ Add Product</span>
@@ -92,4 +93,4 @@
         {{ $products->links() }}
     </div>
 </div>
-@endsection
+</x-app-layout>

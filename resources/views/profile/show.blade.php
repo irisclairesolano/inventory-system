@@ -22,9 +22,11 @@
                     {{ auth()->user()->name }}
                 </h3>
                 <p class="text-sm text-gray-600">{{ auth()->user()->email }}</p>
-                <p class="text-xs text-gray-500 mt-1">
-                    Role: {{ auth()->user()->role }}
-                </p>
+                <div class="mt-2">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#839958]/15 text-[#6B7A4A] border border-[#839958]/30 uppercase tracking-wide">
+                        {{ auth()->user()->role }}
+                    </span>
+                </div>
             </div>
 
             <a href="{{ route('profile.edit') }}" class="btn-primary">
@@ -47,6 +49,7 @@
                                     {{ $log->logged_in_at->format('M d, Y h:i A') }}
                                 </p>
                                 <p class="text-xs text-gray-500">
+                                    <span class="font-medium text-[#0A3323]">IP Address:</span>
                                     {{ $log->ip_address }}
                                 </p>
                             </div>
