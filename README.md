@@ -23,9 +23,25 @@ A modern inventory management system built with Laravel, Tailwind CSS, and Alpin
 
 - **Backend**: Laravel 11 (PHP 8.1+)
 - **Frontend**: Blade templates with Alpine.js
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS with custom color palette (Dark Green, Moss Green, Beige, Rosy Brown, Midnight Green)
 - **Database**: SQLite
 - **Build Tool**: Vite
+
+### Design System
+
+**Color Palette**:
+- **Primary Background**: `#0A3323` (Dark Green)
+- **Secondary/Accent**: `#839958` (Moss Green) 
+- **Light Background/Cards**: `#F7F4D5` (Beige)
+- **Buttons/Highlights**: `#D3968C` (Rosy Brown)
+- **Navbar/Header**: `#105666` (Midnight Green)
+
+**UI Components**:
+- Responsive navigation with role-based menu items
+- Card-based layouts with consistent styling
+- Color-coded buttons and status indicators
+- Modern form inputs with focus states
+- Mobile-responsive design
 
 ---
 

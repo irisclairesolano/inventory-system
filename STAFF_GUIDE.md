@@ -41,18 +41,18 @@
 
 When you first login, the dashboard shows you:
 
-**1. Total Products Card (Blue)**
+**1. Total Products Card (Rosy Brown)**
 - Shows how many products are in the inventory system
 - This is a **view-only metric**
 - Example: "24 Total Products"
 
-**2. Low Stock Items Card (Red)**
+**2. Low Stock Items Card (Rosy Brown)**
 - Shows products that need attention
 - When quantity ≤ reorder level, it counts as "low stock"
 - Alerts help identify items that may need reordering
 - **Your manager handles reordering**
 
-**3. Recent Transactions Card (Green)**
+**3. Recent Transactions Card (Moss Green)**
 - Shows how many transactions have occurred recently
 - Transactions = any movement in/out of inventory
 - Example: "18 Recent Transactions"

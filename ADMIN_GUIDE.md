@@ -42,17 +42,17 @@
 **1. Total Products**
 - Shows the complete count of all products in the system
 - Includes all categories and suppliers
-- Blue card on the left
+- **Rosy Brown card** on the left
 
 **2. Low Stock Items**
 - Displays products where quantity ≤ reorder level
-- Red card in the center (alerts you to stock issues)
+- **Rosy Brown card** in the center (alerts you to stock issues)
 - Click to view inventory details
 
 **3. Recent Transactions**
-- Shows the count of latest inventory movements
-- Green card on the right
-- Displays IN (additions) and OUT (removals)
+- Shows recent inventory movements
+- **Moss Green card** on the right
+- Click to view full transaction history
 
 ### Quick Actions
 - **View Products**: See all products in the system
