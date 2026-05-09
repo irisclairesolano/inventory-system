@@ -7,8 +7,11 @@ use App\Models\Category;
 use App\Models\Supplier;
 use App\Models\Inventory;
 use App\Models\Transaction;
+use App\Mail\ProductCreatedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -76,6 +79,14 @@ class ProductController extends Controller
                 'notes' => 'Initial stock',
                 'transaction_date' => now(),
             ]);
+        }
+
+        // Send product creation notification
+        try {
+            Mail::to(auth()->user()->email)->send(new ProductCreatedNotification($product, auth()->user()));
+        } catch (\Exception $e) {
+            // Log error but don't prevent product creation
+            \Log::error('Product creation notification failed: ' . $e->getMessage());
         }
 
         return redirect()->route('products.index')->with('success', 'Product added successfully!');
