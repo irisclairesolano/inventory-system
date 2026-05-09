@@ -32,9 +32,10 @@ A full-stack web application built with **Laravel 11** for managing inventory, p
 
 ### Frontend
 - **Framework**: Laravel Blade Templating Engine
-- **Styling**: Bootstrap 5
-- **Components**: Forms, Tables, Cards, Alerts
-- **Authentication UI**: Laravel Breeze
+- **Styling**: Tailwind CSS with custom color palette
+- **Color Scheme**: Dark Green (#0A3323), Moss Green (#839958), Beige (#F7F4D5), Rosy Brown (#D3968C), Midnight Green (#105666)
+- **Components**: Forms, Tables, Cards, Alerts with consistent theming
+- **Authentication UI**: Laravel Breeze with custom styling
 
 ### Backend
 - **Framework**: Laravel 11
@@ -556,7 +557,8 @@ inventory-system/
 
 ### Frontend
 - **Template Engine**: Laravel Blade
-- **CSS Framework**: Bootstrap 5
+- **CSS Framework**: Tailwind CSS with custom design system
+- **Color Palette**: Custom green/beige/brown theme
 - **JavaScript**: Vanilla JS + Vite
 - **Build Tool**: Vite
 - **Node PackageManager**: npm

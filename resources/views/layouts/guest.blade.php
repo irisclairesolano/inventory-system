@@ -23,7 +23,7 @@
 
         <div class="p-4 rounded-2xl bg-[#839958]/15 border border-[#839958]/30">
             <svg xmlns="http://www.w3.org/2000/svg"
-                class="w-10 h-10 text-[#F7F4D5]"
+                class="w-10 h-10 text-[#D3968C]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -55,7 +55,7 @@
     </div>
 
         <!-- Card -->
-        <div class="bg-white rounded-xl shadow-lg border border-[#839958] p-6">
+        <div class="bg-[#F7F4D5] rounded-xl shadow-lg border border-[#839958] p-6">
             {{ $slot }}
         </div>
 

@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}" class="space-y-6">
+    <form method="POST" action="{{ route('login') }}" class="space-y-4">
         @csrf
 
         <!-- Email -->
@@ -19,7 +19,7 @@
                 autofocus
             />
 
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input-error :messages="$errors->get('email')" class="mt-1" />
         </div>
 
         <!-- Password -->
@@ -62,7 +62,7 @@
                 </button>
             </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-input-error :messages="$errors->get('password')" class="mt-1" />
         </div>
 
         <!-- Actions -->
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Register -->
-        <div class="text-center pt-3 border-t border-[#839958]/30">
+        <div class="text-center pt-2 border-t border-[#839958]/30">
             <p class="text-sm text-[#0A3323]">
                 Don’t have an account?
                 <a href="{{ route('register') }}"
